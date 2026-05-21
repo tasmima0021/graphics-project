@@ -4,11 +4,11 @@
 #include <cmath>
 #define PI 3.14159f
 
-// ===================== SCENE SELECTOR =====================
+// SCENE SELECTOR 
 int currentScene = 1; // 1 = city scene (default), 2 = nature scene
 
 
-// ===================== SCENE 1 VARIABLES =====================
+//  SCENE 1 VARIABLES 
 bool isDayR = true;
 float timeOfDayR = 0.0f;
 
@@ -30,7 +30,7 @@ float speed2 = 0.55f;
 float angle2 = 0.0f;
 
 
-// ===================== SCENE 2 VARIABLES =====================
+// SCENE 2 VARIABLES 
 float _movecloudm1 = 0.0f;
 float _speedcloudm1 = 0.21f;
 
@@ -53,7 +53,7 @@ float minX = 20.0f, maxX = 180.0f;
 float minY = 10.0f, maxY = 110.0f;
 
 
-// ===================== SHARED FUNCTION =====================
+//  SHARED FUNCTION 
 void drawCircle(float cx, float cy, float r, int num_segments) {
     glBegin(GL_POLYGON);
     for (int i = 0; i < num_segments; i++) {
@@ -66,7 +66,7 @@ void drawCircle(float cx, float cy, float r, int num_segments) {
 }
 
 
-// ===================== SCENE 1 FUNCTIONS =====================
+// SCENE 1 FUNCTIONS 
 
 void sun(){
     glColor3f(1.0f, 0.84f, 0.0f);
@@ -146,7 +146,7 @@ void grassfield2(){
 }
 
 void tree4(){
-    // ===== TREE 1 (left) =====
+    // TREE 1 
     glColor3f(0.45f, 0.25f, 0.05f);
     glBegin(GL_QUADS);
         glVertex2f(34.0f, 10.0f);
@@ -161,7 +161,7 @@ void tree4(){
         glVertex2f(35.0f, 19.0f);
     glEnd();
 
-    // ===== TREE 2 (middle) =====
+    //  TREE 2 
     glColor3f(0.45f, 0.25f, 0.05f);
     glBegin(GL_QUADS);
         glVertex2f(99.0f, 10.0f);
@@ -176,7 +176,7 @@ void tree4(){
         glVertex2f(100.0f, 19.0f);
     glEnd();
 
-    // ===== TREE 3 (right) =====
+    //TREE 3 (right) 
     glColor3f(0.45f, 0.25f, 0.05f);
     glBegin(GL_QUADS);
         glVertex2f(154.0f, 10.0f);
@@ -191,7 +191,7 @@ void tree4(){
         glVertex2f(155.0f, 19.0f);
     glEnd();
 
-    // ===== BENCH =====
+    // BENCH 
     glColor3f(0.5f, 0.25f, 0.0f);
     glBegin(GL_QUADS);
         glVertex2f(118.0f, 12.5f);
@@ -1255,7 +1255,7 @@ void displayh() {
 }
 
 
-// ===================== SCENE 2 FUNCTIONS =====================
+// SCENE 2 FUNCTIONS 
 
 void cloud1m(){
     glPushMatrix();
@@ -1707,7 +1707,7 @@ void displaym() {
 }
 
 
-// ===================== UNIFIED DISPLAY =====================
+//  UNIFIED DISPLAY
 void displayUnified() {
     if (currentScene == 1) {
         displayh();
@@ -1717,7 +1717,7 @@ void displayUnified() {
 }
 
 
-// ===================== SCENE 1 TIMERS =====================
+//  SCENE 1 TIMERS
 void update(int value) {
     _move1 -= speed1;
     if (_move1 < -180.0f) {
@@ -1760,7 +1760,7 @@ void update1(int value) {
 }
 
 
-// ===================== SCENE 2 TIMER =====================
+// SCENE 2 TIMER 
 void updatem(int value) {
     _movecloudm1 += _speedcloudm1;
     if (_movecloudm1 > 200.0f) {
@@ -1800,7 +1800,7 @@ void updatem(int value) {
 }
 
 
-// ===================== UNIFIED KEYBOARD =====================
+//UNIFIED KEYBOARD 
 void handleKeypress(unsigned char key, int x, int y) {
     if (key == '1') { currentScene = 1; glutPostRedisplay(); return; }
     if (key == '2') { currentScene = 2; glutPostRedisplay(); return; }
@@ -1825,7 +1825,7 @@ void handleKeypress(unsigned char key, int x, int y) {
 }
 
 
-// ===================== UNIFIED MOUSE =====================
+// UNIFIED MOUSE 
 void handleMouse(int button, int state, int x, int y) {
     if (currentScene == 1) {
         if (button == GLUT_LEFT_BUTTON)  { speed1 += 0.1f; speed2 += 0.1f; }
@@ -1845,7 +1845,7 @@ void handleMouse(int button, int state, int x, int y) {
 }
 
 
-// ===================== MAIN =====================
+// MAIN 
 int main(int argc, char** argv) {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
